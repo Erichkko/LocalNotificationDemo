@@ -16,30 +16,73 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //设置接收本地通知
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert categories:nil];
+    if ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0) {
+        [application registerUserNotificationSettings:settings];
+    }
+
+    
+    #warning  当程序已经被杀死并且不是通过icon图标启动的时候 launchOptions值就不会为空
+    #warning  可以通过此字典中的info信息判断何种启动方式并且做相应的操作
+    /**
+     * NSString *const UIApplicationLaunchOptionsURLKey;
+     NSString *const UIApplicationLaunchOptionsSourceApplicationKey;
+     NSString *const UIApplicationLaunchOptionsRemoteNotificationKey;
+     NSString *const UIApplicationLaunchOptionsLocalNotificationKey;
+     NSString *const UIApplicationLaunchOptionsAnnotationKey;
+     NSString *const UIApplicationLaunchOptionsLocationKey;
+     NSString *const UIApplicationLaunchOptionsNewsstandDownloadsKey;
+     NSString *const UIApplicationLaunchOptionsBluetoothCentralsKey;
+     NSString *const UIApplicationLaunchOptionsBluetoothPeripheralsKey;
+     NSString *const UIApplicationLaunchOptionsShortcutItemKey;
+     NSString *const UIApplicationLaunchOptionsUserActivityDictionaryKey;
+     NSString *const UIApplicationLaunchOptionsUserActivityTypeKey;
+     */
+    //查看启动参数
+    NSLog(@"launchOptions == %@",launchOptions);
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = CGRectMake(0, 300, 400, 200);
+    label.numberOfLines = 0;
+    label.backgroundColor = [UIColor yellowColor];
+    label.text = [NSString stringWithFormat:@"label == %@",launchOptions];
+    [self.window.rootViewController.view addSubview:label];
+    
+    
+    //判断
+    if (launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]) {
+        //做本地通知的相应操作,跳转到对应的页面
+    }
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [application setApplicationIconBadgeNumber:100];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+#warning  如何程序已经死了就不会调用此方法
+/**
+ *  当应用程序进入前台,或者在前台的时候就会执行该方法(只不过在前台时通知不显示出来,但任然会收到通知)
+ */
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSLog(@"notification == %@",notification);
+    /**
+     *     UIApplicationStateActive,
+     UIApplicationStateInactive,
+     UIApplicationStateBackground
+     */
+    if (application.applicationState == UIApplicationStateInactive) {
+        NSLog(@"UIApplicationStateInactive");
+        
+//        UIView *redView =[[UIView alloc] init];
+//        redView.frame = CGRectMake(0, 0, 100, 100);
+//        redView.backgroundColor = [UIColor redColor];
+//        [self.window.rootViewController.view addSubview:redView];
+    }else{
+        NSLog(@"UIApplicationStateActive");
+    }
 }
 
 @end

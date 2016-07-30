@@ -12,7 +12,6 @@
 		FE95AE351D4CD5DD0025650C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE95AE341D4CD5DD0025650C /* ViewController.m */; };
 		FE95AE381D4CD5DD0025650C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE95AE361D4CD5DD0025650C /* Main.storyboard */; };
 		FE95AE3A1D4CD5DD0025650C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE95AE391D4CD5DD0025650C /* Assets.xcassets */; };
-		FE95AE3D1D4CD5DD0025650C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE95AE3B1D4CD5DD0025650C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +23,6 @@
 		FE95AE341D4CD5DD0025650C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FE95AE371D4CD5DD0025650C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE95AE391D4CD5DD0025650C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FE95AE3C1D4CD5DD0025650C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE95AE3E1D4CD5DD0025650C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +62,6 @@
 				FE95AE341D4CD5DD0025650C /* ViewController.m */,
 				FE95AE361D4CD5DD0025650C /* Main.storyboard */,
 				FE95AE391D4CD5DD0025650C /* Assets.xcassets */,
-				FE95AE3B1D4CD5DD0025650C /* LaunchScreen.storyboard */,
 				FE95AE3E1D4CD5DD0025650C /* Info.plist */,
 				FE95AE2D1D4CD5DD0025650C /* Supporting Files */,
 			);
@@ -137,7 +134,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE95AE3D1D4CD5DD0025650C /* LaunchScreen.storyboard in Resources */,
 				FE95AE3A1D4CD5DD0025650C /* Assets.xcassets in Resources */,
 				FE95AE381D4CD5DD0025650C /* Main.storyboard in Resources */,
 			);
@@ -165,14 +161,6 @@
 				FE95AE371D4CD5DD0025650C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FE95AE3B1D4CD5DD0025650C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FE95AE3C1D4CD5DD0025650C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -262,9 +250,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LocalNotificationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mineline.LocalNotificationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mineline.LocalNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -273,9 +262,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LocalNotificationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mineline.LocalNotificationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mineline.LocalNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
